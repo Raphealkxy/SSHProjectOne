@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+          "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="com.timmy.entity.Customer" table="tb_customer">
+<id name="cid" column="cid"  >
+<generator class="native" ></generator>
+</id>
+<property name="custName" column="custName"></property>
+
+<property name="custLevel" column="custLevel"></property>
+
+<property name="custSource" column="custSource"></property>
+<property name="custPhone" column="custPhone"></property>
+<property name="custMobile" column="custMobile"></property>
+<property name="custLinkman" column="custLinkman"></property>
+
+
+
+
+
+
+</class>
+</hibernate-mapping>

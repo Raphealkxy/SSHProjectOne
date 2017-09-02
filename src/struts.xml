@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+<package name="mypackage" extends="struts-default" namespace="/">
+<action name="user_*" class="useraction" method="{1}">
+<result name="loginSuccess">/index.jsp</result>
+<result name="login">/login.jsp</result>
+
+</action>
+
+<action name="customer_*" class="customeraction" method="{1}">
+<result name="addsuccess">/jsp/success.jsp</result>
+<result name="addfail">/jsp/error.jsp</result>
+<result name="toaddpage">/jsp/customer/add.jsp</result>
+
+</action>
+
+
+
+
+</package>
+</struts>
