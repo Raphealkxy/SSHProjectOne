@@ -74,5 +74,27 @@ public class customerAction extends ActionSupport implements ModelDriven<Custome
 		return customerService.findone(customer.getCid());
 	}
 	
+	public String updateCus()
+	{
+		
+		return "update";
+	}
+	
+	public String showCustomer()
+	{
+		Customer c=findone();
+       HttpServletRequest request=ServletActionContext.getRequest();
+       request.getSession().setAttribute("customer", c);
+		
+		return "showcustomer";
+	}
+	
+	public String update()
+	{
+		//Customer c=findone();
+       customerService.update(customer);
+//		System.out.println(customer.getCid()+"::"+customer.getCustLevel());
+		return "update";
+	}
 
 }

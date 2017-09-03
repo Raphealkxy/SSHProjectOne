@@ -40,6 +40,11 @@ public class CustomerDao {
               hibernateTemplate.delete(c);		
 	}
 
+	public void update(Customer c) {
+         hibernateTemplate.update(c);
+         
+	}
+
 
 
 }

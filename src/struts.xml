@@ -16,10 +16,11 @@
 <result name="toaddpage">/jsp/customer/add.jsp</result>
 <result name="listsuccess">/jsp/customer/list.jsp</result>
 <result name="deletesuccess" type="redirectAction">customer_list</result>
+<result name="showcustomer" >/jsp/customer/edit.jsp</result>
 
+<result name="update" type="redirectAction" >customer_list</result>
 
 </action>
-
 
 
 
