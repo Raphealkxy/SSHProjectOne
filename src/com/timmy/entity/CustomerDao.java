@@ -3,6 +3,7 @@ package com.timmy.entity;
 import java.util.List;
 
 import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 
 public class CustomerDao {
@@ -64,6 +65,13 @@ public class CustomerDao {
 		DetachedCriteria detachedCriteria=DetachedCriteria.forClass(Customer.class);
 		List<Customer>list=(List<Customer>) hibernateTemplate.findByCriteria(detachedCriteria,begin,pagesize);
 		
+		return list;
+	}
+
+	public List<Customer> search(String name) {
+		DetachedCriteria criteria=DetachedCriteria.forClass(Customer.class);
+		criteria.add(Restrictions.like("custName","%"+name+"%"));
+		List<Customer>list=(List<Customer>) hibernateTemplate.findByCriteria(criteria);
 		return list;
 	}
 

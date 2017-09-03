@@ -54,6 +54,10 @@ public class CustomerService {
 		pageBean.setList(customers);
 		return pageBean;
 	}
+	public List<Customer> search(String name) {
+		
+		return customerDao.search(name);
+	}
 	
 
 }

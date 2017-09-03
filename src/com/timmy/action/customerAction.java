@@ -135,5 +135,14 @@ public class customerAction extends ActionSupport implements ModelDriven<Custome
 		}
 		return "listPage";
 	}
+	
+	public String search()
+	{
+		String name=customer.getCustName();
+		List<Customer>list=customerService.search(name);
+		HttpServletRequest request=ServletActionContext.getRequest();
+		request.getSession().setAttribute("list", list);
+		return "search";
+	}
 
 }
