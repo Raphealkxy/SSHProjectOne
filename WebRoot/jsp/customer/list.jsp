@@ -98,6 +98,8 @@
 													<TD>${customer.custLinkman }</TD>
 													<TD>${customer.custPhone }</TD>
 													<TD>${customer.custMobile }</TD>
+													<TD><a href="${pageContext.request.contextPath }/customer_deleteCus.action?cid=${customer.cid}">删除</a></TD>
+													
 													<TD>
 													
 													</TD>

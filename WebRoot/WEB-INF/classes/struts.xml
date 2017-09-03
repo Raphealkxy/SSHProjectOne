@@ -11,9 +11,12 @@
 </action>
 
 <action name="customer_*" class="customeraction" method="{1}">
-<result name="addsuccess">/jsp/success.jsp</result>
+<result name="addsuccess" type="redirectAction">customer_list</result>
 <result name="addfail">/jsp/error.jsp</result>
 <result name="toaddpage">/jsp/customer/add.jsp</result>
+<result name="listsuccess">/jsp/customer/list.jsp</result>
+<result name="deletesuccess" type="redirectAction">customer_list</result>
+
 
 </action>
 

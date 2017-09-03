@@ -1,5 +1,12 @@
 package com.timmy.action;
 
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.commons.fileupload.servlet.ServletRequestContext;
+import org.apache.struts2.ServletActionContext;
+
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.timmy.entity.Customer;
@@ -43,6 +50,29 @@ public class customerAction extends ActionSupport implements ModelDriven<Custome
 		return "toaddpage";
 	}
 	
+	public String list()
+	{
+		
+		List<Customer>customers=customerService.findAll();
+		HttpServletRequest request=ServletActionContext.getRequest();
+		request.getSession().setAttribute("list", customers);
+		return "listsuccess";
+	}
+	
+	public String deleteCus()
+	{
+		Customer c=findone();
+		if(c!=null)
+		{customerService.delete(c);}
+		
+		return "deletesuccess";
+	}
+	
+	public Customer findone()
+	{
+		
+		return customerService.findone(customer.getCid());
+	}
 	
 
 }
