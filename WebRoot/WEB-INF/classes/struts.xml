@@ -19,6 +19,7 @@
 <result name="showcustomer" >/jsp/customer/edit.jsp</result>
 
 <result name="update" type="redirectAction" >customer_list</result>
+<result name="listPage">/jsp/customer/listpage.jsp</result>
 
 </action>
 

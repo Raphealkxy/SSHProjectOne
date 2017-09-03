@@ -31,5 +31,29 @@ public class CustomerService {
 	public void update(Customer c) {
               customerDao.update(c);		
 	}
+	public PageBean listPage(int currentPage) {
+		PageBean pageBean=new PageBean();
+		pageBean.setCurrentPage(currentPage);
+		int  total=customerDao.findtotal();
+		pageBean.setTotalcount(total);
+		int pagesize=3;
+		pageBean.setPageSize(pagesize);
+		int pagetotal;
+		if(total%pagesize==0)
+		{
+			pagetotal=total/pagesize;
+		}else{
+			pagetotal=total/pagesize+1;
+		}
+		pageBean.setTotalPage(pagetotal);
+		
+		int begin=(currentPage-1)*pagesize;
+		pageBean.setBegin(begin);
+		
+		List<Customer>customers=customerDao.findlist(begin,pagesize);
+		pageBean.setList(customers);
+		return pageBean;
+	}
+	
 
 }

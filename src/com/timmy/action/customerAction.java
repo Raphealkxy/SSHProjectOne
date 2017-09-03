@@ -11,6 +11,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.timmy.entity.Customer;
 import com.timmy.entity.CustomerService;
+import com.timmy.entity.PageBean;
 
 public class customerAction extends ActionSupport implements ModelDriven<Customer> {
 
@@ -18,6 +19,33 @@ public class customerAction extends ActionSupport implements ModelDriven<Custome
 	
 	private Customer customer=new Customer();
 	
+	private int currentPage;
+	
+
+	public Customer getCustomer() {
+		return customer;
+	}
+
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
+
+
+	public int getCurrentPage() {
+		return currentPage;
+	}
+
+
+	public void setCurrentPage(int currentPage) {
+		this.currentPage = currentPage;
+	}
+
+
+	public CustomerService getCustomerService() {
+		return customerService;
+	}
+
 
 	public void setCustomerService(CustomerService customerService) {
 		this.customerService = customerService;
@@ -95,6 +123,17 @@ public class customerAction extends ActionSupport implements ModelDriven<Custome
        customerService.update(customer);
 //		System.out.println(customer.getCid()+"::"+customer.getCustLevel());
 		return "update";
+	}
+	
+	public String listPage()
+	{
+		PageBean pageBean=customerService.listPage(currentPage);
+		if(pageBean!=null)
+		{
+			HttpServletRequest request=ServletActionContext.getRequest();
+			request.getSession().setAttribute("pageBean", pageBean);
+		}
+		return "listPage";
 	}
 
 }
